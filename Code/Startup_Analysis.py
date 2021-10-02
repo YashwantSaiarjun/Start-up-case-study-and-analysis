@@ -77,8 +77,9 @@ df['Date'][df['Date']=='22/01//2015'] = '22/01/2015'
 df['Date'][df['Date']=='05/072018'] = '05/07/2018'
 df['Date'][df['Date']=='01/07/015'] = '01/07/2015'
 df['Date'][df['Date']=='\\\\xc2\\\\xa010/7/2015'] = '10/07/2015'
-DATA ANALYSIS
-1.How does funding of ecosystem changes w.r.t time?
+
+#DATA ANALYSIS
+#1.How does funding of ecosystem changes w.r.t time?
 #converting to specific format eg. 201702 represent 2nd feb in 2017
 df["yearmonth"] = (pd.to_datetime(df['Date'],
          format='%d/%m/%Y').dt.year*100)+(pd.to_datetime(df['Date'],format='%d/%m/%Y').dt.month)
@@ -95,7 +96,7 @@ plt.xlabel("Year-month transaction",fontsize=15)
 plt.ylabel("Number of fundings",fontsize=15)
 Text(0, 0.5, 'Number of fundings')
 
-2.WHAT IS THE GENRAL AMOUNT THAT STARTUP GET IN INDIA
+#2.WHAT IS THE GENRAL AMOUNT THAT STARTUP GET IN INDIA
 #Maximum, Minimum and average funding for a startup
 print("Maximum funding for a startup : ",df['AmountinUSD'].dropna().max())
 print("Minimum funding for a startup : ",df['AmountinUSD'].dropna().min())
@@ -120,7 +121,7 @@ plt.ylabel("Startup Name",fontsize=15)
 plt.xlabel("No of fundings",fontsize=15)
 Text(0.5, 0, 'No of fundings')
 
-3. WHAT KIND OF INDUSTRIES ARE PREFERRED MORE FOR STARTUPS
+#3. WHAT KIND OF INDUSTRIES ARE PREFERRED MORE FOR STARTUPS
 df['IndustryVertical']=df['IndustryVertical'].replace('nan','Consumer Technology')
 
 df['IndustryVertical']=df['IndustryVertical'].replace('nan','Consumer Technology')
@@ -155,7 +156,7 @@ plt.xlabel("Sub vertical for startups",fontsize=15)
 plt.ylabel("Fundings for startups",fontsize=15)
 plt.show()
 
-4.DOES LOCATION PLAY IMPORTNT ROLE ON INDIAN STARTUPS
+#4.DOES LOCATION PLAY IMPORTNT ROLE ON INDIAN STARTUPS
 f
 df['City'] = df['City'].replace(('Bengaluru', 'nan'),('Bangalore', 'Bangalore'))
 ​
@@ -172,7 +173,7 @@ plt.ylabel('Number of fundings made', fontsize=12)
 plt.title("city location of startups with number of funding", fontsize=16)
 plt.show()
 
-5.WHO PLAYS THE MAIN ROLE IN INDIAN STARTUPS
+#5.WHO PLAYS THE MAIN ROLE IN INDIAN STARTUPS
 df['InvestorName'][df['InvestorName'] == 'Undisclosed investors'] = 'Undisclosed Investors'
 df['InvestorName'][df['InvestorName'] == 'undisclosed Investors'] = 'Undisclosed Investors'
 df['InvestorName'][df['InvestorName'] == 'undisclosed investors'] = 'Undisclosed Investors'
@@ -195,7 +196,7 @@ plt.title("Investors Names with number of funding", fontsize=16)
 plt.show()
 
 
-6. WHAT ARE THE DIFFERENT TYPES PF FUNDING FOR STARTUPS
+#6. WHAT ARE THE DIFFERENT TYPES PF FUNDING FOR STARTUPS
 investment = df['InvestmentType'].value_counts().head(10)
 print(investment)
 investment = df['InvestmentType'].value_counts().head(10)
